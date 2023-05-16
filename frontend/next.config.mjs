@@ -13,24 +13,22 @@ const nextConfig = {
   eslint: {
     dirs: ['src'],
   },
-  experimental: {
-    images: {
-      unoptimized: true,
+  modularizeImports: {
+    '@mui/material': {
+      transform: '@mui/material/{{member}}',
     },
-    modularizeImports: {
-      '@mui/material': {
-        transform: '@mui/material/{{member}}',
-      },
-      '@mui/icons-material/?(((\\w*)?/?)*)': {
-        transform: '@mui/icons-material/{{ matches.[1] }}/{{member}}',
-      },
-      lodash: {
-        transform: 'lodash/{{member}}',
-      },
-      'date-fns': {
-        transform: 'date-fns/{{member}}',
-      },
+    '@mui/icons-material/?(((\\w*)?/?)*)': {
+      transform: '@mui/icons-material/{{ matches.[1] }}/{{member}}',
     },
+    lodash: {
+      transform: 'lodash/{{member}}',
+    },
+    'date-fns': {
+      transform: 'date-fns/{{member}}',
+    },
+  },
+  images: {
+    unoptimized: true,
   },
   async rewrites() {
     return [
@@ -40,8 +38,8 @@ const nextConfig = {
       },
       {
         source: '/:path*',
-        destination: "http://127.0.0.1:8080/apps/safe/:path*"
-      }
+        destination: 'http://127.0.0.1:8080/apps/safe/:path*',
+      },
     ]
   },
   webpack(config) {
