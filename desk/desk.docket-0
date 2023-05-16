@@ -6,5 +6,5 @@
   website+'https://urbit.org'
   license+'MIT'
   base+'safe'
-  glob-http+['https://sfo3.digitaloceanspaces.com/witfylbucks/witfyl-ravped/glob-0v3.mcvii.2chpl.kcr9u.3hn4k.jj1p5.glob' 0v3.mcvii.2chpl.kcr9u.3hn4k.jj1p5]
+  glob-ames+[~zod 0v0]
 ==
